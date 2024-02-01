@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {OrderLine} from "../interface/order-line";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class OrderService {
   constructor(private httpClient: HttpClient) { }
 
   getAllOrders(){
-    return this.httpClient.get(this.url);
+    return this.httpClient.get<OrderLine[]>(this.url);
   }
 
   markOrderForFollowUp(id: number, followUp: boolean) {

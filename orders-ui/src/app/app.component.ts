@@ -16,8 +16,9 @@ export class AppComponent {
 
   ngOnInit() {
     this.orderService.getAllOrders()
-      .subscribe(response => {
-        console.log(response);
+      .subscribe(orderLines => {
+        console.log(`Order Lines`);
+        console.log(orderLines);
       });
   }
 
