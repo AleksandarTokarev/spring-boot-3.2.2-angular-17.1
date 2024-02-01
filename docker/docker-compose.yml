@@ -1,0 +1,16 @@
+version: “3”
+services:
+  db:
+    image: postgres:16.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=protondb
+      - POSTGRES_USER=proton_admin
+      - POSTGRES_PASSWORD=4QlC2npr9McC
+    ports:
+      - 5432:5432
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+volumes:
+  dbdata:
+    driver: local
