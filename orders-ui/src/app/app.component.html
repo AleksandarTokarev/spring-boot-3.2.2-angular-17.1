@@ -1,19 +1,19 @@
 <div class="content">
   <div>
-    <div class="center header">Orders</div>
+    <div class="center bolded">Orders</div>
     @if (orders.length > 0) {
       <div class="content-orders">
-        <div class="header">Customer Name</div>
-        <div class="header">Product Name</div>
-        <div class="header">Quantity</div>
-        <div class="header">Total Price</div>
-        <div class="header">Date</div>
-        <div class="header">Action</div>
+        <div class="bolded">Customer Name</div>
+        <div class="bolded">Product Name</div>
+        <div class="bolded">Quantity</div>
+        <div class="bolded">Total Price</div>
+        <div class="bolded">Date</div>
+        <div class="bolded">Action</div>
         @for (order of orders; track order.id) {
       <div>{{ order.customerName }}</div>
       <div>{{ order.productName }}</div>
       <div>{{ order.quantity }}</div>
-      <div>{{ order.totalPrice }}</div>
+      <div>{{ order.totalPrice | currency}}</div>
       <div>{{ order.date }}</div>
       <button type="button" (click)="onMarkFollowUp(order, true)">Follow Up</button>
       }
@@ -24,20 +24,20 @@
     }
   </div>
   <div>
-    <div class="center header">Follow Up Orders</div>
+    <div class="center bolded">Follow Up Orders</div>
     @if (followUpOrders.length > 0) {
       <div class="content-orders">
-       <div class="header">Customer Name</div>
-       <div class="header">Product Name</div>
-       <div class="header">Quantity</div>
-       <div class="header">Total Price</div>
-       <div class="header">Date</div>
-       <div class="header">Action</div>
+       <div class="bolded">Customer Name</div>
+       <div class="bolded">Product Name</div>
+       <div class="bolded">Quantity</div>
+       <div class="bolded">Total Price</div>
+       <div class="bolded">Date</div>
+       <div class="bolded">Action</div>
        @for (order of followUpOrders; track order.id) {
         <div>{{ order.customerName }}</div>
         <div>{{ order.productName }}</div>
         <div>{{ order.quantity }}</div>
-        <div>{{ order.totalPrice }}</div>
+        <div>{{ order.totalPrice | currency}}</div>
         <div>{{ order.date }}</div>
         <button type="button" (click)="onMarkFollowUp(order, false)">Remove</button>
        }
@@ -47,5 +47,10 @@
       <h2> No orders marked for follow up.</h2>
     }
 
+    <br/>
+    <div class="content">
+      <div class="bolded">Item count: {{itemCount}}</div>
+      <div class="bolded">Total amount: {{totalAmount | currency}}</div>
+    </div>
   </div>
 </div>
