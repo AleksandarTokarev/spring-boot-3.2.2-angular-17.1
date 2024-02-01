@@ -31,7 +31,7 @@ public class OrderLineRepository {
         if (optionalOrderLine.isPresent()) {
             return optionalOrderLine.get();
         } else {
-            throw new ProtonException(HttpStatus.NOT_FOUND, "Item not found");
+            throw new ProtonException(HttpStatus.NOT_FOUND, "Item with id:" + id + " not found", "Item not found");
         }
     }
 
@@ -47,7 +47,7 @@ public class OrderLineRepository {
                 .param("id", id)
                 .update();
         if (update != 1) {
-            throw new ProtonException(HttpStatus.NOT_FOUND, "Item not found");
+            throw new ProtonException(HttpStatus.NOT_FOUND, "Item with id:" + id + " not found", "Item not found");
         }
     }
 }

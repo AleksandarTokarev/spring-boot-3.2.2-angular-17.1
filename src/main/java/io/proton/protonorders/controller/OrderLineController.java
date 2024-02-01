@@ -33,7 +33,7 @@ public class OrderLineController {
     @PatchMapping("/{id}")
     void updateOrderLineById(@RequestBody OrderLineDTO orderLineDTO, @PathVariable Long id) throws ProtonException {
             if (!Objects.equals(id, orderLineDTO.getId())) {
-            throw new ProtonException(HttpStatus.BAD_REQUEST, "Ids do not match");
+            throw new ProtonException(HttpStatus.BAD_REQUEST, "Provided ids do not match", "Provided ids do not match:" + id + " and " + orderLineDTO.getId());
         }
         orderService.markFollowUpOrder(id, orderLineDTO.getFollowUp());
     }

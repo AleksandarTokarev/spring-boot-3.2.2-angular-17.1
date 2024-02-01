@@ -9,4 +9,5 @@ import org.springframework.http.HttpStatus;
 public class ProtonException extends Exception {
     private HttpStatus httpStatus;
     private String message;
+    private String logMessage;
 }
