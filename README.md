@@ -11,3 +11,4 @@
 8. Open `http://localhost:4200/` (the Frontend App)
 9. Test the app - Mark something to be followed up, remove it, refresh the page
 10. Postman-like collections are provided in the `bruno-collections` folder - they can be used to execute REST requests to test the backend API
+11. Open API / Swagger is available at `http://localhost:5000/swagger-ui/index.html`
