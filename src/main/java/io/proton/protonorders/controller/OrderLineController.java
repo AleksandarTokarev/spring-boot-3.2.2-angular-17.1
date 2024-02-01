@@ -16,6 +16,7 @@ import java.util.Objects;
 @RequestMapping("/api/v1/orders")
 @AllArgsConstructor
 @Slf4j
+@CrossOrigin(origins = "http://localhost:4200")
 public class OrderLineController {
 
     private final OrderLineService orderService;

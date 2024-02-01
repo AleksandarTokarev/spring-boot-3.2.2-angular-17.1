@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {OrderService} from "./service/order.service";
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,21 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'orders-ui';
+
+  constructor(private orderService : OrderService) {}
+
+  ngOnInit() {
+    this.orderService.getAllOrders()
+      .subscribe(response => {
+        console.log(response);
+      });
+  }
+
+
+  onMarkFollowUp() {
+    this.orderService.markOrderForFollowUp(3, true).subscribe({
+      next: result => {},
+      error: e => { console.log(e?.error?.detail)}
+    })
+  }
 }
