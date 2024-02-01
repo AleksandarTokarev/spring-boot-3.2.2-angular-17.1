@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 @Data
-public class Order {
+public class OrderLine {
     private Long id;
     private Long orderId;
     private String customerId;
@@ -18,4 +18,5 @@ public class Order {
     private Integer quantity;
     private BigDecimal totalPrice;
     private String date;
+    private Boolean followUp;
 }
