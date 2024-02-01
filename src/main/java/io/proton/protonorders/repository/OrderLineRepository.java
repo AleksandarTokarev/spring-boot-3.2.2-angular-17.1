@@ -20,7 +20,7 @@ public class OrderLineRepository {
 
     // ideally in a real life use case this would have pagination instead of returning all 300 orders
     public List<OrderLine> getAllOrderLines() {
-        return jdbcClient.sql("SELECT * FROM order_lines").query(OrderLine.class).list();
+        return jdbcClient.sql("SELECT * FROM order_lines ORDER BY id").query(OrderLine.class).list();
     }
 
     public OrderLine getOrderLineById(Long id) throws ProtonException {

@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2.4rem;
+}
+
+
+.content-orders {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+
+.header {
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
