@@ -36,7 +36,8 @@ export class AppComponent {
 
   onMarkFollowUp(orderLine: OrderLine, followUp: boolean) {
     this.orderService.markOrderForFollowUp(orderLine.id, followUp).subscribe({
-      next: result => {
+      next: _ => {
+        // A component for success alerting/snackbar should be used here
         if (!followUp) {
           this.followUpOrders = this.followUpOrders.filter(followUpOrder => followUpOrder.id !== orderLine.id);
         } else {
@@ -58,7 +59,7 @@ export class AppComponent {
         }
       },
       error: e => {
-        // Some component for alerting/snackbar should be used here
+        // A component for error alerting/snackbar should be used here
         alert(e?.error?.detail)
       }
     })
