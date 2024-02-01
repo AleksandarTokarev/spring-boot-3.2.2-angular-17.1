@@ -30,8 +30,6 @@ export class AppComponent {
             this.totalAmount += orderLine.totalPrice;
           }
         }
-        console.log(`Order Lines`);
-        console.log(orderLines);
       });
   }
 
@@ -59,7 +57,10 @@ export class AppComponent {
           this.totalAmount += followUpOrder.totalPrice;
         }
       },
-      error: e => { console.log(e?.error?.detail)}
+      error: e => {
+        // Some component for alerting/snackbar should be used here
+        alert(e?.error?.detail)
+      }
     })
   }
 }
